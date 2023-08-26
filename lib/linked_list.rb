@@ -16,14 +16,22 @@ class LinkedList
         current_node = @head
             until current_node.next_node == nil # ==> stops at the end when the last node's data equals to nil ======= Change to Until??
                 current_node = current_node.next_node # ==> current_node is reassigned to next_node, which was nil && # iterating through the list
-            end
+           end
         current_node.next_node = new_node # What was the last node before the new append now references the new_node as next_node
         end
     end
 
-
     def count
-        counter = 0
+        counter = 0 # Counter starts at 0
+        counting_node = @head # Reference counting spot of head
+        if counting_node != nil #if there is a head, that indicates there is one element therefore it starts at 1 (L:29)
+            counter = 1 
+           until counting_node.next_node == nil #Checks for the end and adds one
+            counter +=1
+            counting_node = counting_node.next_node #Moves "down" the chain
+        end
+         end
+        counter # Returns new counter after running through the loops
     end
 
     # def to_string
