@@ -15,8 +15,7 @@ describe Node do
 
         it 'is locating next node, which is empty' do
             node = Node.new("plop")
-            expect(node.next_node.to be(nil))
-        end
+            expect(node.next_node).to be_nil
         end
     end
 end

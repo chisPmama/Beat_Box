@@ -1,6 +1,5 @@
 require './lib/node'
-require 'pry'
-
+# require 'pry'
 
 class LinkedList
     attr_reader :head
@@ -14,7 +13,7 @@ class LinkedList
             @head = new_node
         else
         current_node = @head
-            until current_node.next_node == nil # ==> stops at the end when the last node's data equals to nil ======= Change to Until??
+            until current_node.next_node == nil # ==> stops at the end when the last node's data equals to nil 
                 current_node = current_node.next_node # ==> current_node is reassigned to next_node, which was nil && # iterating through the list
            end
         current_node.next_node = new_node # What was the last node before the new append now references the new_node as next_node
@@ -37,22 +36,13 @@ class LinkedList
     def to_string
         string_node = @head #start string at head
         string_words = [] #create an empty array for the data
-        until string_node.next_node == nil #until the end of the LinkedList
+        while string_node
             string_data = string_node.data.to_s
-            string_words << string_data
-            string_node = string_node.next_node
+            string_words << string_data #stores value of to_s data into array
+            string_node = string_node.next_node #moves position
         end
-        if string_node.next_node == nil
-            string_data = string_node.data.to_s
-            string_words << string_data
-        end
-        p string_words.join(" ")
+        p string_words.join(" ") #.join concats the strings together while separating with a " " (space)
     end
-    # def to_string
-    #     while !@next_node == nil 
-
-    #     end
-    # end
 end
 
-binding.pry
+# binding.pry

@@ -1,35 +1,66 @@
 require "./lib/node"
-require "./lib/linked_link.rb"
+require "./lib/linked_list"
 require "rspec"
 
 describe LinkedList do
-    describe '#initialize' do
+    describe '#SingleNode' do
         it 'is an instance of LinkedList' do
             list = LinkedList.new
-             expect(list).to be_a LinkedList
+            expect(list).to be_a LinkedList
         end
 
         it 'has a head that is empty' do
-            # node = Node.new("plop")
-            # node.data
-            # expect(node.data).to eq("plop")
+            list = LinkedList.new
+            expect(list.head). to be_nil
         end
 
         it 'can append a new node' do
-            node = Node.new("plop")
-            node.next_node
-            list.append("doop") # doop needs to be added as a new node and 
-            #see if there is already a head (in this case there is with plop, add to space after)
-            expect(node.next_node.to eq(nil))
+            list = LinkedList.new
+            list.append("doop")
+            expect(list.head.data).to eq("doop")
         end
 
-        it 'can append a new node AND place into next position' do
-            node = Node.new("plop")
-            node.next_node
-            list.append("doop") # doop needs to be added as a new node and 
-            #see if there is already a head (in this case there is with plop, add to space after)
-            expect(node.next_node.to eq(nil))
+        it 'can count nodes' do
+            list = LinkedList.new
+            list.append("doop")
+            expect(list.count).to eq(1)
         end
+
+        it 'can return_a_string' do
+            list = LinkedList.new
+            list.append("doop")
+            expect(list.to_string).to eq("doop")
+        end
+    end
+    describe '#MultipleNodes' do
+        it 'can append a second node after the head' do
+            list = LinkedList.new
+            list.append("doop")
+            list.append("deep")
+            expect(list.head.next_node).to eq("deep")
+        end
+
+        xit 'has a head that is empty' do
+            list = LinkedList.new
+            expect(list.head). to be_nil
+        end
+
+        xit 'can append a new node' do
+            list = LinkedList.new
+            list.append("doop")
+            expect(list.head.data).to eq("doop")
+        end
+
+        xit 'can count nodes' do
+            list = LinkedList.new
+            list.append("doop")
+            expect(list.count).to eq(1)
+        end
+
+        xit 'can return_a_string' do
+            list = LinkedList.new
+            list.append("doop")
+            expect(list.to_string).to eq("doop")
         end
     end
 end
