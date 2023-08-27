@@ -34,6 +34,20 @@ class LinkedList
         counter # Returns new counter after running through the loops
     end
 
+    def to_string
+        string_node = @head #start string at head
+        string_words = [] #create an empty array for the data
+        until string_node.next_node == nil #until the end of the LinkedList
+            string_data = string_node.data.to_s
+            string_words << string_data
+            string_node = string_node.next_node
+        end
+        if string_node.next_node == nil
+            string_data = string_node.data.to_s
+            string_words << string_data
+        end
+        p string_words.join(" ")
+    end
     # def to_string
     #     while !@next_node == nil 
 
