@@ -31,33 +31,32 @@ describe LinkedList do
             list.append("doop")
             expect(list.to_string).to eq("doop")
         end
-    end
     describe '#MultipleNodes' do
         it 'can append a second node after the head' do
             list = LinkedList.new
             list.append("doop")
             list.append("deep")
-            expect(list.head.next_node).to eq("deep")
+            expect(list.head.next_node).to eq
         end
 
-        xit 'has a head that is empty' do
+        it 'has a head that is empty' do
             list = LinkedList.new
             expect(list.head). to be_nil
         end
 
-        xit 'can append a new node' do
+        it 'can append a new node' do
             list = LinkedList.new
             list.append("doop")
             expect(list.head.data).to eq("doop")
         end
 
-        xit 'can count nodes' do
+        it 'can count nodes' do
             list = LinkedList.new
             list.append("doop")
             expect(list.count).to eq(1)
         end
 
-        xit 'can return_a_string' do
+        it 'can return_a_string' do
             list = LinkedList.new
             list.append("doop")
             expect(list.to_string).to eq("doop")

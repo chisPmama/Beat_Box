@@ -1,5 +1,5 @@
 require './lib/node'
-# require 'pry'
+require 'pry'
 
 class LinkedList
     attr_reader :head
@@ -43,6 +43,12 @@ class LinkedList
         end
         p string_words.join(" ") #.join concats the strings together while separating with a " " (space)
     end
+
+    def prepend (data)
+        new_node = Node.new(data)
+        new_node.next_node = @head
+        @head = new_node
+    end
 end
 
-# binding.pry
+binding.pry
