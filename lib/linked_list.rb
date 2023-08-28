@@ -84,6 +84,23 @@ class LinkedList
         end
         p return_elements.join(" ")
     end
+
+    def includes?(string)
+        current_node = @head
+        compare = string.eql? current_node.data
+        while compare == false
+            current_node = current_node.next_node
+            compare = string.eql? current_node.data
+        end
+        compare
+    end
 end
 
 binding.pry
+
+list = LinkedList.new
+list.append("goofy")
+list.append("princess")
+list.append("on")
+list.append("drugs")
+list.to_string
