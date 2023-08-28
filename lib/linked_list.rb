@@ -1,5 +1,5 @@
 require './lib/node'
-require 'pry'
+# require 'pry'
 
 class LinkedList
     attr_reader :head
@@ -92,7 +92,23 @@ class LinkedList
         end
         compare
     end
+
+    def pop
+        pop_node = @head
+        while pop_node.next_node.next_node != nil
+            pop_node = pop_node.next_node
+        end
+        popped_node = pop_node.next_node.data
+        pop_node.next_node = nil
+        popped_node
+    end
 end
-binding.pry
+
 
 # binding.pry
+
+#  list = LinkedList.new
+# list.append("goofy")
+# list.append("princess")
+# list.append("on")
+# list.append("drugs")
