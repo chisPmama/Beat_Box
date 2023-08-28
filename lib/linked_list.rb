@@ -35,13 +35,12 @@ class LinkedList
 
     def to_string
         string_node = @head #start string at head
-        string_words = [] #create an empty array for the data
+        string_words = ""
         while string_node
-            string_data = string_node.data.to_s
-            string_words << string_data #stores value of to_s data into array
+            string_words << string_node.data.to_s + " " #stores value of to_s data into array
             string_node = string_node.next_node #moves position
         end
-        p string_words.join(" ") #.join concats the strings together while separating with a " " (space)
+        string_words.strip  #.join concats the strings together while separating with a " " (space)
     end
 
     def prepend (data)
