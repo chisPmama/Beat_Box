@@ -70,6 +70,20 @@ class LinkedList
             current_node.next_node = new_node # Assigning the node at the node before the replacement node to point at new node
         end
     end
+
+    def find (number, number_elements)
+        current_node = @head
+        number.times do #moving to requested position
+            current_node = current_node.next_node
+        end
+        return_elements = []
+        number_elements.times do 
+            found_element = current_node.data.to_s
+            return_elements << found_element
+            current_node = current_node.next_node
+        end
+        p return_elements.join(" ")
+    end
 end
 
 binding.pry
