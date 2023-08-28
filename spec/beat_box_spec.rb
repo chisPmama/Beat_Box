@@ -4,7 +4,6 @@ require "./lib/beat_box"
 require "rspec"
 
 describe BeatBox do
-   
         it 'can instantiate LinkedList list' do
             bb = BeatBox.new
             expect(bb).to be_a BeatBox
@@ -39,4 +38,12 @@ describe BeatBox do
             bb.append("woo hoo shu")
             expect(bb.list.count).to eq(6)
         end
+
+        it 'can count when only calling bb.count' do
+            bb = BeatBox.new
+            bb.append("deep doo ditt")
+            bb.append("woo hoo shu")
+            expect(bb.count).to eq(6)
+        end
+
 end
