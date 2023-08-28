@@ -52,7 +52,7 @@ class LinkedList
     def insert (number, data)
         new_node = Node.new(data)
         current_node = @head # Represents position 0
-        if number == 0
+        if number == 0 || @head == nil
             new_node = Node.new(data)
             new_node.next_node = @head
             @head = new_node
@@ -72,12 +72,11 @@ class LinkedList
 
     def find (number, number_elements)
         current_node = @head
-        number.times do #moving to requested position
+        number.times do #moving to requested position per amount of times of number
             current_node = current_node.next_node
         end
         return_elements = ""
         number_elements.times do 
-            # found_element = current_node.data.to_s
             return_elements << current_node.data.to_s + " "
             current_node = current_node.next_node
         end
@@ -94,12 +93,6 @@ class LinkedList
         compare
     end
 end
-
-list = LinkedList.new
-list.append("goofy")
-list.append("princess")
-list.append("on")
-list.append("drugs")
-list.to_string
-
 binding.pry
+
+# binding.pry
