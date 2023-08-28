@@ -75,19 +75,19 @@ class LinkedList
         number.times do #moving to requested position
             current_node = current_node.next_node
         end
-        return_elements = []
+        return_elements = ""
         number_elements.times do 
-            found_element = current_node.data.to_s
-            return_elements << found_element
+            # found_element = current_node.data.to_s
+            return_elements << current_node.data.to_s + " "
             current_node = current_node.next_node
         end
-        p return_elements.join(" ")
+        p return_elements.strip
     end
 
     def includes?(string)
         current_node = @head
         compare = string.eql? current_node.data
-        while compare == false
+        until current_node.next_node == nil || compare == true
             current_node = current_node.next_node
             compare = string.eql? current_node.data
         end
@@ -95,11 +95,11 @@ class LinkedList
     end
 end
 
-binding.pry
-
 list = LinkedList.new
 list.append("goofy")
 list.append("princess")
 list.append("on")
 list.append("drugs")
 list.to_string
+
+binding.pry
