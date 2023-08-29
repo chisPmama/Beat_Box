@@ -107,8 +107,3 @@ end
 
 # binding.pry
 
-#  list = LinkedList.new
-# list.append("goofy")
-# list.append("princess")
-# list.append("on")
-# list.append("drugs")
