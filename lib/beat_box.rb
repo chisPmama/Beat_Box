@@ -1,42 +1,39 @@
 require './lib/linked_list'
-require 'pry'
+# require 'pry'
 
 class BeatBox
     attr_reader :list, :data
+    attr_accessor :rate, :voice
 
-# ITERATION V
-    def initialize(data)
-        @list = LinkedList.new
-         self.append(data)
-    end
-#  ITERATION III
-    # def initialize
-    #     @list = LinkedList.new #Created a new LinkedList that is stored in BeatBox
-    # end
-
-# ITERATION V
-    def append(data) # mississippi
-        starter_list = "tee dee deep bop boop la na".split
-        verification = ""
-        starter_list.each do |accepted_data| # look at each word in the array
-            verify = (data.eql? accepted_data).to_s + " " # missisippi != look => false
-            verification << verify #stores "false "
-        end
-        if verification.include? "true"
-             data_split = (data.to_s).split
-             data_split.each do |data|
-                @list.append(data)
-             
-        end
+# ITERATION IV -- Placed here to create access in def initialize
+    def append(data) # mississippi bop dee
+        data_split = (data.to_s).split # => data_split = [mississippi, bop, dee]
+        accepted_list = "tee dee deep dop bop boop la na".split # => accepted_list = [tee, dee, deep..]
+            accepted_data = data_split.find_all do |single_data| #[] of missispii / bop / ee ### Want this to return [bop, dee]
+                accepted_list.include?(single_data)
+            end
+        accepted_data.each do |accepted|
+            @list.append(accepted)
         end
     end
-#  ITERATION III
-    # def append(data)
-    #     data_split = (data.to_s).split
-    #     data_split.each do |data|
-    #         @list.append(data)
-    #     end
-    # end
+
+    def initialize(data) ## bb = BeatBox.new("luv")
+        @list = LinkedList.new #creates a head
+        @rate = 500
+        @voice = "Boing"
+        self.append(data)
+    end
+
+    def prepend(data)
+        data_split = (data.to_s).split # => data_split = [mississippi, bop, dee]
+        accepted_list = "tee dee deep bop boop la na".split # => accepted_list = [tee, dee, deep..]
+            accepted_data = data_split.find_all do |single_data| #[] of missispii / bop / ee ### Want this to return [bop, dee]
+                accepted_list.include?(single_data)
+            end
+        accepted_data.each do |accepted|
+            @list.prepend(accepted)
+        end
+    end
 
     def count
         list.count
@@ -44,11 +41,24 @@ class BeatBox
 
     def play
         beats = list.to_string
-        `say -r 500 -v Boing #{beats}` 
+        `say -r #{@rate.to_s} -v #{@voice} #{beats}` 
     end
+
+    def all
+        list.to_string
+    end
+
+    def reset_rate
+        @rate = 500
+    end
+
+    def reset_voice
+        @voice = "Boing"
+    end
+    
 
 end
 
 # bb = BeatBox.new
 # bb.append("deep doo ditt")
-binding.pry
+#   binding.pry
