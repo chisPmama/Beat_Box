@@ -52,21 +52,25 @@ class LinkedList
     def insert (number, data)
         new_node = Node.new(data)
         current_node = @head # Represents position 0
-        if number == 0 || @head == nil
-            new_node = Node.new(data)
-            new_node.next_node = @head
-            @head = new_node
+        if number > self.count
+          print "The position number has to be within the value of #{self.count}"
         else
-            number.times do # Go to the position where the node that needs to be replaced is
-                current_node = current_node.next_node
-            end
-            new_node.next_node = current_node
-            current_node = @head # Going back to the head to restart position
-            node_before = number - 1 # Set to go to the node before to have it set to the new replacement node value
-            node_before.times do
-                current_node = current_node.next_node # ==> iterating (number) times to the correct position
-            end
-            current_node.next_node = new_node # Assigning the node at the node before the replacement node to point at new node
+          if number == 0 || @head == nil
+              new_node = Node.new(data)
+              new_node.next_node = @head
+              @head = new_node
+          else
+              number.times do # Go to the position where the node that needs to be replaced is
+                  current_node = current_node.next_node
+              end
+              new_node.next_node = current_node
+              current_node = @head # Going back to the head to restart position
+              node_before = number - 1 # Set to go to the node before to have it set to the new replacement node value
+              node_before.times do
+                  current_node = current_node.next_node # ==> iterating (number) times to the correct position
+              end
+              current_node.next_node = new_node # Assigning the node at the node before the replacement node to point at new node
+          end
         end
     end
 
